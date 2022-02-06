@@ -1,0 +1,74 @@
+﻿<Page x:Class="BolsaSalesianos.RegisterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:BolsaSalesianos"
+      mc:Ignorable="d"
+      Background="{StaticResource MaterialDesignLightBackground}"
+      FontFamily="{StaticResource MaterialDesignFont}"
+      TextElement.Foreground="{StaticResource MaterialDesignLightForeground}"
+      Title="RegisterPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Mode="Light" Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton x:Name="radio_student" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4" IsChecked="False" Content="Estudiante" Grid.Column="0" Checked="ChangeRegister"/>
+                <RadioButton x:Name="radio_enterprise" Style="{StaticResource MaterialDesignTabRadioButton}"  Margin="4" IsChecked="False" Content="Empresa" Grid.Column="1" Checked="ChangeRegister"/>
+            </Grid>
+        </materialDesign:ColorZone>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+
+                        <StackPanel x:Name="student_form" Visibility="Collapsed" Margin="20 10 20 0">
+                            <TextBox Margin="6" x:Name="student_dni" materialDesign:HintAssist.Hint="Dni" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="student_name" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="student_last_name" materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="student_phone" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="student_email" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="student_user" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <PasswordBox Margin="6" x:Name="student_pass" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                            <PasswordBox Margin="6" x:Name="student_pass_2" materialDesign:HintAssist.Hint="Repita la contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="license" Content="Carnet de conducir"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="employed" Content="Trabajando actualmente"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="data_transf" Content="Cesion de datos"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="enterprise_form" Visibility="Visible" Margin="20 10 20 0">
+                            <TextBox Margin="6" x:Name="enterprise_cif" materialDesign:HintAssist.Hint="Cif" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="enterprise_name" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="enterprise_contact_person" materialDesign:HintAssist.Hint="Persona de contacto" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="enterprise_phone" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="enterprise_email" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <TextBox Margin="6" x:Name="enterprise_user" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                            <PasswordBox Margin="6" x:Name="enterprise_pass" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                            <PasswordBox Margin="6" x:Name="enterprise_pass_2" materialDesign:HintAssist.Hint="Repite la contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                        </StackPanel>
+                        <materialDesign:Snackbar IsActive="False" x:Name="trigger" MessageQueue="{materialDesign:MessageQueue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Margin="10">
+                        <Button Margin="10" Content="REGISTRARSE" Style="{StaticResource MaterialDesignFlatDarkBgButton}" ToolTip="Resource name: MaterialDesignRaisedAccentButton" Cursor="Hand" Click="Register" />
+                        <Button Margin="10" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="MaterialDesignFloatingActionMiniDarkButton" Click="BackButton">
+                            <materialDesign:PackIcon Kind="ArrowBack" Height="24" Width="24" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
