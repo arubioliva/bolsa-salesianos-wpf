@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BolsaSalesianos.pojos;
 using BolsaSalesianos.database;
+using System.Collections.ObjectModel;
 
 namespace BolsaSalesianos.pages.user.college
 {
@@ -32,12 +33,17 @@ namespace BolsaSalesianos.pages.user.college
             InitializeComponent();
             studentsServices = new StudentsServices();
             credentialsService = new CredentialsService();
+            
             students = studentsServices.FetchAll();
             students_list.ItemsSource = students;
-
             List<int> credentials = credentialsService.FetchAll().Select(o => o.id).ToList();
             credential_selection.ItemsSource = credentials;
         }
 
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            students_list.ItemsSource = from student in students where (student.name + student.last_name + student.dni + student.email + student.resume).ToLower().Contains(((TextBox)sender).Text.Replace(" ", "").ToLower()) select student;
+        }
     }
 }

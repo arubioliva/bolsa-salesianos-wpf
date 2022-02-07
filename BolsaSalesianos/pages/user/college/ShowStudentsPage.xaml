@@ -9,32 +9,69 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ShowStudentsPage">
 
-    <Grid>
+    <Grid Background="{StaticResource MaterialDesignDarkBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0"></StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryMid" Padding="16" Grid.Row="0">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
+                    <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}"
+                                          Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                          CommandParameter="{x:Static Dock.Left}" />
+                    <materialDesign:ColorZone
+                        Mode="Standard"
+                        Padding="8 4 8 4"
+                        CornerRadius="2"
+                        Panel.ZIndex="1"
+                        Margin="16 0 0 0"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                        <TextBox
+                            Grid.Column="1" Margin="8 0 0 0"
+                            materialDesign:HintAssist.Hint="Search"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            BorderThickness="0" Width="800"
+                            TextChanged="TextChanged"
+                            VerticalAlignment="Center" Cursor="IBeam" />
+                    </materialDesign:ColorZone>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <StackPanel Grid.Row="1">
+            <ToolBarTray>
+                <ToolBar
+                    Style="{DynamicResource MaterialDesignToolBar}"
+                    ClipToBounds="False">
+                    <CheckBox Content="Check"/>
+                    <Button
+                      ToolTip="Take a nap"
+                      ToolBar.OverflowMode="Always">
+                        <materialDesign:PackIcon Kind="Hotel" />
+                    </Button>
+                </ToolBar>
+            </ToolBarTray>
+        </StackPanel>
         <DataGrid
               x:Name="students_list"
-              Grid.Row="1"
-              Margin="0 8 0 0"
+              Grid.Row="2"
+              Margin="20 10"
+              CanUserResizeColumns="False"
               CanUserSortColumns="True"
-              CanUserAddRows="False"
+              CanUserAddRows="True"
               AutoGenerateColumns="False"
               materialDesign:DataGridAssist.CellPadding="13 8 8 8"
-              materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+              materialDesign:DataGridAssist.ColumnHeaderPadding="20 10">
             <DataGrid.Columns>
                 <DataGridTextColumn
                       Binding="{Binding dni}"
                       Header="DNI"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
                 <materialDesign:DataGridTextColumn
                       Binding="{Binding name}"
                       Header="Nombre"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <!-- set a max length to get an indicator in the editor -->
                 <materialDesign:DataGridTextColumn
                       Binding="{Binding last_name}"
                       Header="Apellidos"

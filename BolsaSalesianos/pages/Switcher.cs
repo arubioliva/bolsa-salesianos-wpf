@@ -31,9 +31,17 @@ namespace BolsaSalesianos
          */
         public static void SwitchWindow(Window newWindow)
         {
-            window.Close();
+            window.Hide();
+            newWindow.Owner = window;
             window = newWindow;
             window.Show();
+        }
+
+        public static void SwitchOwner()
+        {
+            window.Owner.Show();
+            window.Close();
+            window = window.Owner;
         }
     }
 }

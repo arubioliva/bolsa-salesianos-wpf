@@ -51,7 +51,6 @@ namespace BolsaSalesianos.pojos
         {
             StudentsServices studentsServices = new StudentsServices();
             studentsServices.Update(this);
-
         }
 
         public void CancelEdit()

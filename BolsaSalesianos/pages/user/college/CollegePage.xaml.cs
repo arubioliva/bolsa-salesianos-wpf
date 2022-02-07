@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BolsaSalesianos.pages.user.college;
 
 namespace BolsaSalesianos.pages.user
 {
@@ -27,7 +28,12 @@ namespace BolsaSalesianos.pages.user
 
         private void CloseSession(object sender, RoutedEventArgs e)
         {
-            Switcher.window.Close();
+            Switcher.SwitchOwner();
+        }
+
+        private void StudentsPage(object sender, RoutedEventArgs e)
+        {
+            content.Content = new ShowStudentsPage();
         }
     }
 }

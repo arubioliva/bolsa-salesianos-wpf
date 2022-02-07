@@ -14,23 +14,15 @@
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Margin="40">
                     <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            Content="Estudiantes" Cursor="Hand" Click="StudentsPage"/>
+
+                    <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <materialDesign:ColorZone Mode="PrimaryMid" Padding="16" Grid.Row="0">
-                    <DockPanel>
-                        <StackPanel Orientation="Horizontal" materialDesign:RippleAssist.IsCentered="True">
-                            <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" CommandParameter="{x:Static Dock.Left}" />
-                        </StackPanel>
-                    </DockPanel>
-                </materialDesign:ColorZone>
-                <Frame x:Name="content" Source="ShowStudentsPage.xaml"  Grid.Row="1"/>
-            </Grid>
+            <Frame x:Name="content" NavigationUIVisibility="Hidden" Source="../DefaultPage.xaml"  Grid.Row="1"/>
         </materialDesign:DrawerHost>
     </Grid>
 </Page>

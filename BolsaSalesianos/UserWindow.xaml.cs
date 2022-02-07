@@ -42,5 +42,10 @@ namespace BolsaSalesianos
                     break;
             }
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Owner.Close();
+        }
     }
 }
