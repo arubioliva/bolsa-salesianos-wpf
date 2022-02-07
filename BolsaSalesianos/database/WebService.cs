@@ -66,7 +66,7 @@ namespace BolsaSalesianos.database
         {
             try
             {
-                string response = wc.DownloadString(base_url);
+                string response = wc.UploadString(base_url, JsonFromPojo(new { }));
                 return JsonConvert.DeserializeObject<List<T>>(response);
             }
             catch (Exception)
@@ -92,12 +92,25 @@ namespace BolsaSalesianos.database
             }
         }
 
+        public Status Update(T data)
+        {
+            try
+            {
+                string response = wc.UploadString(base_url, "PUT", JsonConvert.SerializeObject(data));
+                return JsonConvert.DeserializeObject<Status>(response);
+            }
+            catch (Exception)
+            {
+                return default;
+            }
+        }
+
         /* 
         * Convierte un json en un pojo ignorando de este aquellos valores con valores nulos.
         */
-        private static string JsonFromPojo(T data)
+        private static string JsonFromPojo(object data)
         {
-            return JsonConvert.SerializeObject(data, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            return JsonConvert.SerializeObject(data, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore });
         }
     }
 }

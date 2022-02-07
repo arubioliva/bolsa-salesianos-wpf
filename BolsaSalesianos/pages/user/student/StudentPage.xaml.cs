@@ -16,13 +16,19 @@ using System.Windows.Shapes;
 namespace BolsaSalesianos.pages.user
 {
     /// <summary>
-    /// Lógica de interacción para CollegePage.xaml
+    /// Lógica de interacción para StudentPage.xaml
     /// </summary>
-    public partial class CollegePage : Page
+    public partial class StudentPage : Page
     {
-        public CollegePage()
+        public StudentPage()
         {
             InitializeComponent();
         }
+
+        private void CloseSession(object sender, RoutedEventArgs e)
+        {
+            Switcher.window.Close();
+        }
     }
+
 }

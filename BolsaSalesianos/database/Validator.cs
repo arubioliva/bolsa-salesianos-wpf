@@ -35,9 +35,6 @@ namespace BolsaSalesianos.database
                 case "pass": return ValidateWithError(value, @"^(?=.*([A-Z]|Ñ))(?=.*([a-z]|ñ))(?=.*[0-9])(?=.*[#?!@$ %^&*-]).{6,}$", "La contraseña es incorrecta");
                 case "email": return ValidateWithError(value, @"^\w+@\w+[.]\w{2,3}$", "El email es incorrecto");
                 case "phone": return ValidateWithError(value, @"^([+](\d{1,3}([-]\d{1,3})?) ?)?\d{9}$", "El telefono es incorrecto");
-                case "license":
-                case "employed":
-                case "data_transf": return Regex.IsMatch(value, @"0|1");
                 default: return false;
             }
         }
@@ -86,9 +83,6 @@ namespace BolsaSalesianos.database
                         break;
                     case PasswordBox passwordBox:
                         values.Add(passwordBox.Name.Replace($"{form_name}_", ""), passwordBox.Password);
-                        break;
-                    case CheckBox checkBox:
-                        values.Add(checkBox.Name.Replace($"{form_name}_", ""), (bool)checkBox.IsChecked ? "1" : "0");
                         break;
                 }
             }

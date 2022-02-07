@@ -37,7 +37,7 @@ namespace BolsaSalesianos
                 case "Estudiante":
                     Content = new StudentPage();
                     break;
-                case "Colegio":
+                case "Centro":
                     Content = new CollegePage();
                     break;
             }

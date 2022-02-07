@@ -9,8 +9,8 @@ namespace BolsaSalesianos.pojos
     internal class Status
     {
 
-        private int status { get; set; }
-        private Error error { get; set; }
+        public int status { get; set; }
+        public Error error { get; set; }
 
         public Status()
         {
@@ -26,7 +26,7 @@ namespace BolsaSalesianos.pojos
     internal class Error
     {
 
-        private List<String> errorInfo { get; set; }
+        public List<String> errorInfo { get; set; }
 
         public Error()
         {

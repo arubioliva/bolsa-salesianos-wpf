@@ -1,0 +1,72 @@
+﻿<Page x:Class="BolsaSalesianos.pages.user.college.ShowStudentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BolsaSalesianos.pages.user.college"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowStudentsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"></StackPanel>
+        <DataGrid
+              x:Name="students_list"
+              Grid.Row="1"
+              Margin="0 8 0 0"
+              CanUserSortColumns="True"
+              CanUserAddRows="False"
+              AutoGenerateColumns="False"
+              materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+              materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                      Binding="{Binding dni}"
+                      Header="DNI"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+                <materialDesign:DataGridTextColumn
+                      Binding="{Binding name}"
+                      Header="Nombre"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <!-- set a max length to get an indicator in the editor -->
+                <materialDesign:DataGridTextColumn
+                      Binding="{Binding last_name}"
+                      Header="Apellidos"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn
+                      Binding="{Binding email}"
+                      Header="Email"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                <materialDesign:DataGridTextColumn
+                      Binding="{Binding resume}"
+                      Header="Curriculum"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                <materialDesign:DataGridComboBoxColumn
+                      x:Name="credential_selection"
+                      SelectedValueBinding="{Binding credential}"
+                      Header="Credencial"/>
+                <DataGridCheckBoxColumn
+                      Header="Carnet de conducir"
+                      Binding="{Binding license, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
+                <DataGridCheckBoxColumn
+                      Header="Trabajando"
+                      Binding="{Binding employed, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
+                <DataGridCheckBoxColumn
+                      Header="Cesion de datos"
+                      Binding="{Binding data_transf, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

@@ -44,9 +44,9 @@
                             <TextBox Margin="6" x:Name="student_user" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
                             <PasswordBox Margin="6" x:Name="student_pass" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
                             <PasswordBox Margin="6" x:Name="student_pass_2" materialDesign:HintAssist.Hint="Repita la contraseña" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
-                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="license" Content="Carnet de conducir"/>
-                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="employed" Content="Trabajando actualmente"/>
-                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="data_transf" Content="Cesion de datos"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_license" Content="Carnet de conducir"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_employed" Content="Trabajando actualmente"/>
+                            <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_data_transf" Content="Cesion de datos"/>
                         </StackPanel>
 
                         <StackPanel x:Name="enterprise_form" Visibility="Visible" Margin="20 10 20 0">

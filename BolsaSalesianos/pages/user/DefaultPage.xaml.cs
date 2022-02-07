@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BolsaSalesianos.pages.user
 {
     /// <summary>
-    /// Lógica de interacción para StudentPage.xaml
+    /// Lógica de interacción para DefaultPage.xaml
     /// </summary>
-    public partial class StudentPage : Page
+    public partial class DefaultPage : Page
     {
-        public StudentPage()
+        public DefaultPage()
         {
             InitializeComponent();
         }

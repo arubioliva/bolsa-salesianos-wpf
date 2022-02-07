@@ -11,7 +11,7 @@ namespace BolsaSalesianos.pojos
         public string user { get; set; }
         public string pass { get; set; }
         public string type { get; set; }
-        public string id { get; set; }
+        public int id { get; set; }
         public string last_connection { get; set; }
 
         public Credential(string user, string pass)

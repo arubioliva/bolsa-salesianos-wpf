@@ -30,6 +30,5 @@ namespace BolsaSalesianos
             Content = new LoginPage();
             Switcher.window = this;
         }
-       
     }
 }

@@ -130,7 +130,7 @@ namespace BolsaSalesianos
                     if (insertedCredential != null)
                     {
                         Student newStudent = new Student(values["dni"], values["name"], values["last_name"], values["phone"],
-                            values["email"], values["license"], values["employed"], values["data_transf"], insertedCredential.id);
+                            values["email"], (bool)student_license.IsChecked?1:0, (bool)student_employed.IsChecked ? 1 : 0, (bool)student_data_transf.IsChecked ? 1 : 0, insertedCredential.id);
                         studentsService.Insert(newStudent);
                         Switcher.SwitchWindow(new UserWindow(insertedCredential));
                     }

@@ -102,10 +102,16 @@
     <Compile Include="database\StudentsServices.cs" />
     <Compile Include="database\WebService.cs" />
     <Compile Include="database\Validator.cs" />
-    <Compile Include="pages\user\CollegePage.xaml.cs">
+    <Compile Include="pages\user\college\CollegePage.xaml.cs">
       <DependentUpon>CollegePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\user\StudentPage.xaml.cs">
+    <Compile Include="pages\user\college\ShowStudentsPage.xaml.cs">
+      <DependentUpon>ShowStudentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\user\DefaultPage.xaml.cs">
+      <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\user\student\StudentPage.xaml.cs">
       <DependentUpon>StudentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pojos\Enterprise.cs" />
@@ -140,11 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\user\CollegePage.xaml">
+    <Page Include="pages\user\college\CollegePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\user\StudentPage.xaml">
+    <Page Include="pages\user\college\ShowStudentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\user\DefaultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\user\student\StudentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,9 +13,9 @@ namespace BolsaSalesianos.pojos
         public string contact_person { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
-        public string credential { get; set; }
+        public int credential { get; set; }
 
-        public Enterprise(string cif, string name, string contact_person, string phone, string email, string credential) : this(cif)
+        public Enterprise(string cif, string name, string contact_person, string phone, string email, int credential) : this(cif)
         {
             this.name = name;
             this.contact_person = contact_person;
