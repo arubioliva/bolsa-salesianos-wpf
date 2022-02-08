@@ -12,7 +12,7 @@ namespace BolsaSalesianos.database
     internal class WebService<T>
     {
         public string base_url { get; set; }
-        private WebClient wc;
+        public WebClient wc;
 
         /* 
          * Constructor que recibira como parametro el complementario de la url que será el nombre de
@@ -108,7 +108,7 @@ namespace BolsaSalesianos.database
         /* 
         * Convierte un json en un pojo ignorando de este aquellos valores con valores nulos.
         */
-        private static string JsonFromPojo(object data)
+        public static string JsonFromPojo(object data)
         {
             return JsonConvert.SerializeObject(data, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore });
         }

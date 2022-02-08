@@ -42,6 +42,7 @@ namespace BolsaSalesianos.pojos
             this.credential = credential;
         }
 
+
         public void BeginEdit()
         {
 

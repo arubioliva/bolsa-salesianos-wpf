@@ -44,12 +44,26 @@
                 <ToolBar
                     Style="{DynamicResource MaterialDesignToolBar}"
                     ClipToBounds="False">
-                    <CheckBox Content="Check"/>
-                    <Button
-                      ToolTip="Take a nap"
-                      ToolBar.OverflowMode="Always">
-                        <materialDesign:PackIcon Kind="Hotel" />
-                    </Button>
+                    <Label Content="Ciclo:" VerticalAlignment="Center" />
+                    <ComboBox x:Name="studies" SelectionChanged="studies_SelectionChanged"/>
+                    <Label Content="Año finalización:" VerticalAlignment="Center" />
+                    <ComboBox x:Name="studies_year" SelectionChanged="studies_SelectionChanged"/>
+                    
+                    <Separator />
+                    
+                    <Label Content="Oferta:" VerticalAlignment="Center" />
+                    <ComboBox x:Name="selection_id" SelectionChanged="studies_SelectionChanged"/>
+                    
+                    <Label Content="Contratado:" VerticalAlignment="Center" />
+                    <CheckBox x:Name="selection_selected" IsChecked="True"/>
+                    
+                    <Separator />
+                    
+                    <Label Content="Idioma:" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="idiom_language" SelectionChanged="studies_SelectionChanged"/>
+                    
+                    <Label Content="Nivel:" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="idiom_level" SelectionChanged="studies_SelectionChanged"/>
                 </ToolBar>
             </ToolBarTray>
         </StackPanel>
@@ -60,7 +74,7 @@
               CanUserResizeColumns="False"
               CanUserSortColumns="True"
               CanUserAddRows="True"
-              AutoGenerateColumns="False"
+              AutoGenerateColumns="false"
               materialDesign:DataGridAssist.CellPadding="13 8 8 8"
               materialDesign:DataGridAssist.ColumnHeaderPadding="20 10">
             <DataGrid.Columns>

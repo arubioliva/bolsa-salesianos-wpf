@@ -36,7 +36,5 @@ namespace BolsaSalesianos.pojos
         {
             this.errorInfo = errorInfo;
         }
-
-
     }
 }

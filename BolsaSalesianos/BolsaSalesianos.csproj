@@ -99,7 +99,13 @@
     </ApplicationDefinition>
     <Compile Include="database\CredentialsService.cs" />
     <Compile Include="database\EnterprisesServices.cs" />
+    <Compile Include="database\IdiomsService.cs" />
+    <Compile Include="database\pojos\Idiom.cs" />
+    <Compile Include="database\pojos\Selection.cs" />
+    <Compile Include="database\pojos\StudyStudent.cs" />
+    <Compile Include="database\SelectionsService.cs" />
     <Compile Include="database\StudentsServices.cs" />
+    <Compile Include="database\StudiesStudentService.cs" />
     <Compile Include="database\WebService.cs" />
     <Compile Include="database\Validator.cs" />
     <Compile Include="pages\user\college\CollegePage.xaml.cs">
@@ -114,8 +120,8 @@
     <Compile Include="pages\user\student\StudentPage.xaml.cs">
       <DependentUpon>StudentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pojos\Enterprise.cs" />
-    <Compile Include="pojos\Status.cs" />
+    <Compile Include="database\pojos\Enterprise.cs" />
+    <Compile Include="database\pojos\Status.cs" />
     <Compile Include="pages\login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -168,8 +174,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pojos\Credential.cs" />
-    <Compile Include="pojos\Student.cs" />
+    <Compile Include="database\pojos\Credential.cs" />
+    <Compile Include="database\pojos\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using BolsaSalesianos.database.pojos;
 using BolsaSalesianos.pojos;
 using Newtonsoft.Json;
 
@@ -16,5 +17,19 @@ namespace BolsaSalesianos.database
         {
 
         }
+
+        public List<Student> FetchAllByStudy(string filter)
+        {
+            try
+            {
+                string response = wc.UploadString(base_url + "?option=studies_vacants", filter);
+                return JsonConvert.DeserializeObject<List<Student>>(response);
+            }
+            catch (Exception)
+            {
+                return default;
+            }
+        }
+
     }
 }
