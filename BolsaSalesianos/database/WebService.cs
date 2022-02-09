@@ -83,7 +83,8 @@ namespace BolsaSalesianos.database
         {
             try
             {
-                string response = wc.UploadString(base_url + "?petition=insert", JsonFromPojo(data));
+                string response = wc.UploadString(base_url + "?petition=insert", JsonConvert.SerializeObject(data, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }));
+                Console.WriteLine(response);
                 return JsonConvert.DeserializeObject<Status>(response);
             }
             catch (Exception)

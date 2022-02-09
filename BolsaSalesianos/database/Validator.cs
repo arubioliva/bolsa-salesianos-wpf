@@ -16,7 +16,7 @@ namespace BolsaSalesianos.database
         {
             this.trigger = trigger;
         }
-        
+
         /* 
          * El método validate recibe un tipo de valor y su valor correspondiente, reocorre un switch con todos mis posibles
          * tipos de datos y devuelve true o false comprobando los valores.
@@ -45,8 +45,12 @@ namespace BolsaSalesianos.database
          */
         private bool ValidateWithError(string value, string regex, string error)
         {
-            trigger.MessageQueue.Enqueue(error);
-            return Regex.IsMatch(value, regex);
+            if (!Regex.IsMatch(value, regex))
+            {
+                trigger.MessageQueue.Enqueue(error);
+                return false;
+            }
+            return true;
         }
 
         /* 

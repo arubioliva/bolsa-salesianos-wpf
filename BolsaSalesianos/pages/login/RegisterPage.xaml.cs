@@ -85,7 +85,6 @@ namespace BolsaSalesianos
         {
             Dictionary<String, String> values = validator.getValues(enterprise_form, "enterprise");
             bool valid = validator.IsValid(values) & PassValid(values["pass"], values["pass_2"]);
-            trigger.IsActive = true;
             if (valid)
             {
                 Credential credential = credentialsService.Fetch(new Credential(values["user"]));
@@ -107,6 +106,10 @@ namespace BolsaSalesianos
                     }
                 }
             }
+            else
+            {
+                trigger.IsActive = true;
+            }
         }
 
         /* 
@@ -117,7 +120,7 @@ namespace BolsaSalesianos
         {
             Dictionary<String, String> values = validator.getValues(student_form, "student");
             bool valid = validator.IsValid(values) & PassValid(values["pass"], values["pass_2"]);
-            trigger.IsActive = true;
+
             if (valid)
             {
                 Credential credential = credentialsService.Fetch(new Credential(values["user"]));
@@ -130,11 +133,15 @@ namespace BolsaSalesianos
                     if (insertedCredential != null)
                     {
                         Student newStudent = new Student(values["dni"], values["name"], values["last_name"], values["phone"],
-                            values["email"], (bool)student_license.IsChecked?1:0, (bool)student_employed.IsChecked ? 1 : 0, (bool)student_data_transf.IsChecked ? 1 : 0, insertedCredential.id);
+                            values["email"], (bool)student_license.IsChecked ? 1 : 0, (bool)student_employed.IsChecked ? 1 : 0, (bool)student_data_transf.IsChecked ? 1 : 0, insertedCredential.id);
                         studentsService.Insert(newStudent);
                         Switcher.SwitchWindow(new UserWindow(insertedCredential));
                     }
                 }
+            }
+            else
+            {
+                trigger.IsActive = true;
             }
         }
 
@@ -144,7 +151,7 @@ namespace BolsaSalesianos
         */
         private bool PassValid(string pass, string pass_2)
         {
-            if (pass.Equals(pass_2)) trigger.MessageQueue.Enqueue("Las contraseñas no coinciden");
+            if (!pass.Equals(pass_2)) trigger.MessageQueue.Enqueue("Las contraseñas no coinciden");
             return pass.Equals(pass_2);
         }
 

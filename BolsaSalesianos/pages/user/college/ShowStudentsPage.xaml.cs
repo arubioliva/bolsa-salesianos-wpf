@@ -26,7 +26,7 @@ namespace BolsaSalesianos.pages.user.college
     public partial class ShowStudentsPage : Page
     {
 
-        private ObservableCollection<Student> students { get; set; }
+        private List<Student> students { get; set; }
         private StudentsServices studentsServices { get; set; }
         private CredentialsService credentialsService { get; set; }
         private StudiesStudentService studiesService { get; set; }
@@ -42,7 +42,7 @@ namespace BolsaSalesianos.pages.user.college
             selectionsService = new SelectionsService();
             idiomsService = new IdiomsService();
 
-            students = new ObservableCollection<Student>(studentsServices.FetchAll());
+            students = studentsServices.FetchAll();
             students_list.ItemsSource = students;
 
             credential_selection.ItemsSource = credentialsService.FetchAll().Select(o => o.id).ToList();
@@ -87,6 +87,7 @@ namespace BolsaSalesianos.pages.user.college
 
         private void studies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Console.WriteLine("aaaaaaaaaaa");
             string study = studies.SelectedIndex != 0 ? studies.SelectedItem.ToString() : null;
 
             int? year = null;
@@ -102,15 +103,22 @@ namespace BolsaSalesianos.pages.user.college
             string idiomLanguage = idiom_language.SelectedIndex > 0 ? idiom_language.SelectedItem.ToString() : null;
             string idiomLevel = idiom_level.SelectedIndex > 0 ? idiom_level.SelectedItem.ToString() : null;
 
-            object item = new
+            if (study == null && selectionId == null && idiomLanguage == null && idiomLevel == null && year == null)
             {
-                study_student = new { study = study, end = year },
-                selection = new { id = selectionId, selected = selected },
-                idiom = new { language = idiomLanguage, level = idiomLevel }
-            };
-            string filter = JsonConvert.SerializeObject(item, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            students = new ObservableCollection<Student>(studentsServices.FetchAllByStudy(filter));
-            students_list.ItemsSource = students;
+                students = studentsServices.FetchAll();
+            }
+            else
+            {
+                object item = new
+                {
+                    study_student = new { study = study, end = year },
+                    selection = new { id = selectionId, selected = selected },
+                    idiom = new { language = idiomLanguage, level = idiomLevel }
+                };
+                string filter = JsonConvert.SerializeObject(item, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                students = studentsServices.FetchAllByStudy(filter);
+                students_list.ItemsSource = students;
+            }
 
         }
     }
