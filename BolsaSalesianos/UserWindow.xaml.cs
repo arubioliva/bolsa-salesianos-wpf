@@ -35,10 +35,10 @@ namespace BolsaSalesianos
             switch (credential.type)
             {
                 case "Estudiante":
-                    Content = new StudentPage();
+                    Content = new StudentPage(credential);
                     break;
                 case "Centro":
-                    Content = new CollegePage();
+                    Content = new CollegePage(credential);
                     break;
             }
         }

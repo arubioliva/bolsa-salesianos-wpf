@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BolsaSalesianos.pages.user.student;
+using BolsaSalesianos.pojos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,21 @@ namespace BolsaSalesianos.pages.user
     /// </summary>
     public partial class StudentPage : Page
     {
-        public StudentPage()
+        private Credential credential { get; set; }
+        public StudentPage(object credential)
         {
+            this.credential = (Credential)credential;
             InitializeComponent();
         }
 
         private void CloseSession(object sender, RoutedEventArgs e)
         {
             Switcher.window.Close();
+        }
+
+        private void Studies(object sender, RoutedEventArgs e)
+        {
+            content.Content = new ShowStudiesPage(credential);
         }
     }
 

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\App.xaml
-9-242076283
+101640782200
 11957717834
-30-1666866952
+35-2025193083
 27-81002395
-MainWindow.xaml;pages\login\LoginPage.xaml;pages\login\RegisterPage.xaml;pages\user\college\CollegePage.xaml;pages\user\college\ShowEnterprisesPage.xaml;pages\user\college\ShowStudentsPage.xaml;pages\user\DefaultPage.xaml;pages\user\student\StudentPage.xaml;UserWindow.xaml;
+MainWindow.xaml;pages\login\LoginPage.xaml;pages\login\RegisterPage.xaml;pages\user\college\CollegePage.xaml;pages\user\college\ShowEnterprisesPage.xaml;pages\user\college\ShowStudentsPage.xaml;pages\user\DefaultPage.xaml;pages\user\student\ShowStudiesPage.xaml;pages\user\student\StudentPage.xaml;UserWindow.xaml;
 
-True
+False
 

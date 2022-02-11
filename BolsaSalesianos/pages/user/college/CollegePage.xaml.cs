@@ -21,7 +21,7 @@ namespace BolsaSalesianos.pages.user
     /// </summary>
     public partial class CollegePage : Page
     {
-        public CollegePage()
+        public CollegePage(object credential)
         {
             InitializeComponent();
         }

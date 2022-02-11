@@ -22,11 +22,11 @@ namespace BolsaSalesianos.pages.user.college
     /// </summary>
     public partial class ShowEnterprisesPage : Page
     {
-        private EnterprisesServices enterprisesServices;
+        private EnterprisesService enterprisesServices;
         public ShowEnterprisesPage()
         {
             InitializeComponent();
-            enterprisesServices = new EnterprisesServices();
+            enterprisesServices = new EnterprisesService();
             enterprises_list.ItemsSource = enterprisesServices.FetchAll();
 
             List<string> enterprise_names = new List<string>();

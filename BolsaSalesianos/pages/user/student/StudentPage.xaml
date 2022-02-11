@@ -12,10 +12,13 @@
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Margin="40">
                     <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            Content="Estudios" Cursor="Hand" Click="Studies"/>
+                    <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>
-            <Frame x:Name="content" Source="../DefaultPage.xaml"  Grid.Row="1"/>
+            <Frame x:Name="content" NavigationUIVisibility="Hidden" Source="../DefaultPage.xaml"  Grid.Row="1"/>
         </materialDesign:DrawerHost>
     </Grid>
 </Page>

@@ -97,17 +97,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="database\CredentialsService.cs" />
-    <Compile Include="database\EnterprisesServices.cs" />
-    <Compile Include="database\IdiomsService.cs" />
+    <Compile Include="database\pojos\Study.cs" />
+    <Compile Include="database\services\CredentialsService.cs" />
+    <Compile Include="database\services\EnterprisesService.cs" />
+    <Compile Include="database\services\IdiomsService.cs" />
+    <Compile Include="database\services\IdiomsStudentService.cs" />
     <Compile Include="database\pojos\Idiom.cs" />
+    <Compile Include="database\pojos\IdiomStudent.cs" />
     <Compile Include="database\pojos\Selection.cs" />
     <Compile Include="database\pojos\StudyStudent.cs" />
-    <Compile Include="database\SelectionsService.cs" />
-    <Compile Include="database\StudentsServices.cs" />
-    <Compile Include="database\StudiesStudentService.cs" />
-    <Compile Include="database\WebService.cs" />
-    <Compile Include="database\Validator.cs" />
+    <Compile Include="database\services\SelectionsService.cs" />
+    <Compile Include="database\services\StudentsService.cs" />
+    <Compile Include="database\services\StudiesService.cs" />
+    <Compile Include="database\services\StudiesStudentService.cs" />
+    <Compile Include="database\services\WebService.cs" />
+    <Compile Include="database\datautils\Validator.cs" />
     <Compile Include="pages\user\college\CollegePage.xaml.cs">
       <DependentUpon>CollegePage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +123,9 @@
     </Compile>
     <Compile Include="pages\user\DefaultPage.xaml.cs">
       <DependentUpon>DefaultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\user\student\ShowStudiesPage.xaml.cs">
+      <DependentUpon>ShowStudiesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\user\student\StudentPage.xaml.cs">
       <DependentUpon>StudentPage.xaml</DependentUpon>
@@ -168,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\user\DefaultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\user\student\ShowStudiesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

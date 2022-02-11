@@ -7,9 +7,9 @@ using BolsaSalesianos.pojos;
 
 namespace BolsaSalesianos.database
 {
-    internal class EnterprisesServices : WebService<Enterprise>
+    internal class EnterprisesService : WebService<Enterprise>
     {
-        public EnterprisesServices() : base("enterprises")
+        public EnterprisesService() : base("enterprises")
         {
 
         }

@@ -236,3 +236,7 @@ C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\o
 C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\BolsaSalesianos.pdb
 C:\Users\arubi\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\college\ShowEnterprisesPage.g.cs
 C:\Users\arubi\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\college\ShowEnterprisesPage.baml
+C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\college\ShowEnterprisesPage.g.cs
+C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\student\ShowStudiesPage.g.cs
+C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\college\ShowEnterprisesPage.baml
+C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\pages\user\student\ShowStudiesPage.baml

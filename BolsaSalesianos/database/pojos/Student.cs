@@ -50,7 +50,7 @@ namespace BolsaSalesianos.pojos
 
         public void EndEdit()
         {
-            StudentsServices studentsServices = new StudentsServices();
+            StudentsService studentsServices = new StudentsService();
             studentsServices.Update(this);
         }
 

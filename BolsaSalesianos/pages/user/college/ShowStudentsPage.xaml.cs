@@ -26,8 +26,8 @@ namespace BolsaSalesianos.pages.user.college
     public partial class ShowStudentsPage : Page
     {
 
-        private List<Student> students { get; set; }
-        private StudentsServices studentsServices { get; set; }
+        private List<pojos.Student> students { get; set; }
+        private StudentsService studentsServices { get; set; }
         private CredentialsService credentialsService { get; set; }
         private StudiesStudentService studiesService { get; set; }
         private SelectionsService selectionsService { get; set; }
@@ -36,7 +36,7 @@ namespace BolsaSalesianos.pages.user.college
         public ShowStudentsPage()
         {
             InitializeComponent();
-            studentsServices = new StudentsServices();
+            studentsServices = new StudentsService();
             credentialsService = new CredentialsService();
             studiesService = new StudiesStudentService();
             selectionsService = new SelectionsService();
@@ -141,7 +141,7 @@ namespace BolsaSalesianos.pages.user.college
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(students_remove.SelectedItem.ToString());
-            studentsServices.Delete(new Student { dni = students_remove.SelectedItem.ToString() });
+            studentsServices.Delete(new pojos.Student { dni = students_remove.SelectedItem.ToString() });
             filtrar();
         }
     }

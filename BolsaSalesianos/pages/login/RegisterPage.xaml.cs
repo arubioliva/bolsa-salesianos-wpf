@@ -25,8 +25,8 @@ namespace BolsaSalesianos
     {
 
         private readonly CredentialsService credentialsService;
-        private readonly EnterprisesServices enterprisesService;
-        private readonly StudentsServices studentsService;
+        private readonly EnterprisesService enterprisesService;
+        private readonly StudentsService studentsService;
         private readonly Validator validator;
 
         public RegisterPage()
@@ -36,8 +36,8 @@ namespace BolsaSalesianos
 
             validator = new Validator(trigger);
             credentialsService = new CredentialsService();
-            studentsService = new StudentsServices();
-            enterprisesService = new EnterprisesServices();
+            studentsService = new StudentsService();
+            enterprisesService = new EnterprisesService();
         }
 
         /* 

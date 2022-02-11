@@ -6,24 +6,23 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BolsaSalesianos.database.pojos;
-using BolsaSalesianos.pojos;
 using Newtonsoft.Json;
 
 namespace BolsaSalesianos.database
 {
-    internal class StudentsServices : WebService<Student>
+    internal class StudentsService : WebService<BolsaSalesianos.pojos.Student>
     {
-        public StudentsServices() : base("students")
+        public StudentsService() : base("students")
         {
 
         }
 
-        public List<Student> FetchAllByStudy(string filter)
+        public List<BolsaSalesianos.pojos.Student> FetchAllByStudy(string filter)
         {
             try
             {
                 string response = wc.UploadString(base_url + "?option=studies_vacants", filter);
-                return JsonConvert.DeserializeObject<List<Student>>(response);
+                return JsonConvert.DeserializeObject<List<BolsaSalesianos.pojos.Student>>(response);
             }
             catch (Exception)
             {
