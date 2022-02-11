@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BolsaSalesianos.database;
+using BolsaSalesianos.pojos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,23 @@ namespace BolsaSalesianos.pages.user.college
     /// </summary>
     public partial class ShowEnterprisesPage : Page
     {
+        private EnterprisesServices enterprisesServices;
         public ShowEnterprisesPage()
         {
             InitializeComponent();
+            enterprisesServices = new EnterprisesServices();
+            enterprises_list.ItemsSource = enterprisesServices.FetchAll();
+
+            List<string> enterprise_names = new List<string>();
+            enterprise_names.AddRange(enterprisesServices.FetchAll().Select(o => o.cif).Distinct().ToList());
+            enterprise_remove.ItemsSource = enterprise_names;
+        }
+
+        private void DeleteEnterprise(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(enterprise_remove.SelectedItem.ToString());
+            enterprisesServices.Delete(new Enterprise { cif = enterprise_remove.SelectedItem.ToString() });
+            enterprises_list.ItemsSource = enterprisesServices.FetchAll();
         }
     }
 }

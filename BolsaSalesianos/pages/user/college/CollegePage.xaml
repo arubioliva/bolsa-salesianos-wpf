@@ -16,7 +16,9 @@
                     <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Estudiantes" Cursor="Hand" Click="StudentsPage"/>
-
+                    <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            Content="Empresas" Cursor="Hand" Click="EnterprisesPage"/>
                     <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>

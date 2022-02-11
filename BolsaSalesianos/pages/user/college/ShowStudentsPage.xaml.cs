@@ -70,7 +70,7 @@ namespace BolsaSalesianos.pages.user.college
             idiomsLevel.AddRange(idioms.Select(o => o.level).Distinct());
 
 
-            List<string> sutdents_names = new List<string> { "Todos" };
+            List<string> sutdents_names = new List<string>();
             sutdents_names.AddRange(studentsServices.FetchAll().Select(o => o.dni).Distinct().ToList());
             students_remove.ItemsSource = sutdents_names;
             students_remove.SelectedIndex = 0;

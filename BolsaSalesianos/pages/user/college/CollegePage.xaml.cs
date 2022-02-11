@@ -35,5 +35,10 @@ namespace BolsaSalesianos.pages.user
         {
             content.Content = new ShowStudentsPage();
         }
+
+        private void EnterprisesPage(object sender, RoutedEventArgs e)
+        {
+            content.Content = new ShowEnterprisesPage();
+        }
     }
 }
