@@ -34,28 +34,27 @@
                 Margin="10 10"
                 Grid.Column="0">
                 <ListView 
-                    HorizontalContentAlignment="Left"
                     x:Name="enterprises_list">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding cif}"
-                            Header="Cif" />
+                                DisplayMemberBinding="{Binding cif}"
+                                Header="Cif" />
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding name}"
-                            Header="Nombre" />
+                                DisplayMemberBinding="{Binding name}"
+                                Header="Nombre" />
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding contact_person}"
-                            Header="Persona de contacto" />
+                                DisplayMemberBinding="{Binding contact_person}"
+                                Header="Persona de contacto" />
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding phone}"
-                            Header="Teléfono" />
+                                DisplayMemberBinding="{Binding phone}"
+                                Header="Teléfono" />
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding email}"
-                            Header="Email" />
+                                DisplayMemberBinding="{Binding email}"
+                                Header="Email" />
                             <GridViewColumn
-                            DisplayMemberBinding="{Binding credential}"
-                            Header="Credencial" />
+                                DisplayMemberBinding="{Binding credential}"
+                                Header="Credencial" />
                         </GridView>
                     </ListView.View>
                 </ListView>
