@@ -48,76 +48,90 @@
                     <ComboBox x:Name="studies" SelectionChanged="studies_SelectionChanged"/>
                     <Label Content="Año finalización:" VerticalAlignment="Center" />
                     <ComboBox x:Name="studies_year" SelectionChanged="studies_SelectionChanged"/>
-                    
+
                     <Separator />
-                    
+
                     <Label Content="Oferta:" VerticalAlignment="Center" />
                     <ComboBox x:Name="selection_id" SelectionChanged="studies_SelectionChanged"/>
-                    
+
                     <Label Content="Contratado:" VerticalAlignment="Center" />
-                    <CheckBox x:Name="selection_selected" IsChecked="True"/>
-                    
+                    <CheckBox x:Name="selection_selected" Checked="check_changed" Unchecked="check_changed"/>
+
                     <Separator />
-                    
+
                     <Label Content="Idioma:" VerticalAlignment="Center"/>
                     <ComboBox x:Name="idiom_language" SelectionChanged="studies_SelectionChanged"/>
-                    
+
                     <Label Content="Nivel:" VerticalAlignment="Center"/>
                     <ComboBox x:Name="idiom_level" SelectionChanged="studies_SelectionChanged"/>
                 </ToolBar>
             </ToolBarTray>
         </StackPanel>
-        <DataGrid
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid
+              Grid.Column="0"
               x:Name="students_list"
-              Grid.Row="2"
-              Margin="20 10"
+              Margin="5 10"
               CanUserResizeColumns="False"
               CanUserSortColumns="True"
               CanUserAddRows="True"
               AutoGenerateColumns="false"
               materialDesign:DataGridAssist.CellPadding="13 8 8 8"
               materialDesign:DataGridAssist.ColumnHeaderPadding="20 10">
-            <DataGrid.Columns>
-                <DataGridTextColumn
+                <DataGrid.Columns>
+                    <DataGridTextColumn
                       Binding="{Binding dni}"
                       Header="DNI"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                <materialDesign:DataGridTextColumn
+                    <materialDesign:DataGridTextColumn
                       Binding="{Binding name}"
                       Header="Nombre"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn
+                    <materialDesign:DataGridTextColumn
                       Binding="{Binding last_name}"
                       Header="Apellidos"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn
+                    <materialDesign:DataGridTextColumn
                       Binding="{Binding email}"
                       Header="Email"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
-                <materialDesign:DataGridTextColumn
+                    <materialDesign:DataGridTextColumn
                       Binding="{Binding resume}"
                       Header="Curriculum"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
-                <materialDesign:DataGridComboBoxColumn
+                    <materialDesign:DataGridComboBoxColumn
                       x:Name="credential_selection"
                       SelectedValueBinding="{Binding credential}"
                       Header="Credencial"/>
-                <DataGridCheckBoxColumn
+                    <DataGridCheckBoxColumn
                       Header="Carnet de conducir"
                       Binding="{Binding license, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
-                <DataGridCheckBoxColumn
+                    <DataGridCheckBoxColumn
                       Header="Trabajando"
                       Binding="{Binding employed, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
-                <DataGridCheckBoxColumn
+                    <DataGridCheckBoxColumn
                       Header="Cesion de datos"
                       Binding="{Binding data_transf, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Column="1" Margin="5 10"  Background="{StaticResource MaterialDesignLightBackground}">
+                <StackPanel Margin="5">
+                    <Label Content="Estudiantes:" VerticalAlignment="Center" />
+                    <ComboBox x:Name="students_remove" SelectionChanged="studies_SelectionChanged" Style="{StaticResource MaterialDesignFilledComboBox}"/>
+                    <Border Height="40"/>
+                    <Button Content="Borrar estudiante" Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

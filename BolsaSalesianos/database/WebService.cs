@@ -105,6 +105,18 @@ namespace BolsaSalesianos.database
                 return default;
             }
         }
+        public Status Delete(T data)
+        {
+            try
+            {
+                string response = wc.UploadString(base_url, "DELETE", JsonFromPojo(data));
+                return JsonConvert.DeserializeObject<Status>(response);
+            }
+            catch (Exception)
+            {
+                return default;
+            }
+        }
 
         /* 
         * Convierte un json en un pojo ignorando de este aquellos valores con valores nulos.

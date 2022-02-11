@@ -111,6 +111,9 @@
     <Compile Include="pages\user\college\CollegePage.xaml.cs">
       <DependentUpon>CollegePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\user\college\ShowEnterprisesPage.xaml.cs">
+      <DependentUpon>ShowEnterprisesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="pages\user\college\ShowStudentsPage.xaml.cs">
       <DependentUpon>ShowStudentsPage.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\user\college\CollegePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\user\college\ShowEnterprisesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

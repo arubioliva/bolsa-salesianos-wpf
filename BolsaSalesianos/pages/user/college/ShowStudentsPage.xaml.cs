@@ -70,6 +70,12 @@ namespace BolsaSalesianos.pages.user.college
             idiomsLevel.AddRange(idioms.Select(o => o.level).Distinct());
 
 
+            List<string> sutdents_names = new List<string> { "Todos" };
+            sutdents_names.AddRange(studentsServices.FetchAll().Select(o => o.dni).Distinct().ToList());
+            students_remove.ItemsSource = sutdents_names;
+            students_remove.SelectedIndex = 0;
+
+
             idiom_language.ItemsSource = idiomsLanguage;
             idiom_language.SelectedIndex = 0;
 
@@ -85,9 +91,9 @@ namespace BolsaSalesianos.pages.user.college
             students_list.ItemsSource = students.Where(student => (student.name + student.last_name + student.dni + student.email + student.resume).ToLower().Contains(((TextBox)sender).Text.Replace(" ", "").ToLower()));
         }
 
-        private void studies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void filtrar()
         {
-            Console.WriteLine("aaaaaaaaaaa");
             string study = studies.SelectedIndex != 0 ? studies.SelectedItem.ToString() : null;
 
             int? year = null;
@@ -106,6 +112,7 @@ namespace BolsaSalesianos.pages.user.college
             if (study == null && selectionId == null && idiomLanguage == null && idiomLevel == null && year == null)
             {
                 students = studentsServices.FetchAll();
+                students_list.ItemsSource = students;
             }
             else
             {
@@ -119,7 +126,23 @@ namespace BolsaSalesianos.pages.user.college
                 students = studentsServices.FetchAllByStudy(filter);
                 students_list.ItemsSource = students;
             }
+        }
 
+        private void studies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filtrar();
+        }
+
+        private void check_changed(object sender, RoutedEventArgs e)
+        {
+            filtrar();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(students_remove.SelectedItem.ToString());
+            studentsServices.Delete(new Student { dni = students_remove.SelectedItem.ToString() });
+            filtrar();
         }
     }
 }
