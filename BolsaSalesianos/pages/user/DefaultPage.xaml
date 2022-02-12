@@ -19,9 +19,12 @@
                     <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}"
                                           Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                           CommandParameter="{x:Static Dock.Left}" />
+                    <!--the request to open the dialog will bubble up to the top-most DialogHost, but we can used the attached property based event to handle the response -->
+
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>
+        
         <Image Grid.Row="1" Source="../../resources/images/logo_small.png" Height="300" ></Image>
     </Grid>
 

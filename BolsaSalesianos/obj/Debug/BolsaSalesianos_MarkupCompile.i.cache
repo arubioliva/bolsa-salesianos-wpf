@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\
+C:\Users\arubi\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\obj\Debug\
 BolsaSalesianos
 none
 false
 DEBUG;TRACE
-C:\Users\Rubio\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\App.xaml
+C:\Users\arubi\OneDrive\Documentos\GitHub\bolsa-salesianos-wpf\BolsaSalesianos\App.xaml
 101640782200
 11957717834
 35-2025193083
-27-81002395
+27-166337049
 MainWindow.xaml;pages\login\LoginPage.xaml;pages\login\RegisterPage.xaml;pages\user\college\CollegePage.xaml;pages\user\college\ShowEnterprisesPage.xaml;pages\user\college\ShowStudentsPage.xaml;pages\user\DefaultPage.xaml;pages\user\student\ShowStudiesPage.xaml;pages\user\student\StudentPage.xaml;UserWindow.xaml;
 
 False

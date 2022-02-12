@@ -8,9 +8,7 @@ namespace BolsaSalesianos.database.pojos
 {
     internal class IdiomStudent
     {
-        public int id { get; set; }
-        public string language { get; set; }
-        public string level { get; set; }
-
+        public string student { get; set; }
+        public int idiom { get; set; }
     }
 }

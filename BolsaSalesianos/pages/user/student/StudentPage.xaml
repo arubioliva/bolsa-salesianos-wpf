@@ -11,10 +11,10 @@
         <materialDesign:DrawerHost>
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Margin="40">
-                    <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                    <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Estudios" Cursor="Hand" Click="Studies"/>
-                    <Button Margin="2" HorizontalAlignment="Left" Style="{DynamicResource MaterialDesignFlatButton}"
+                    <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>

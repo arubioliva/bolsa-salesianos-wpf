@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BolsaSalesianos.database
 {
-    internal class IdiomsStudentService : WebService<pojos.IdiomStudent>
+    internal class IdiomsStudentService : WebService<IdiomStudent>
     {
         public IdiomsStudentService() : base("idioms_student")
         {
 
         }
-        public List<IdiomStudent> GetIdiomsByStudent(string dni_usuario)
+        public List<Idiom> GetIdiomsByStudent(string dni_usuario)
         {
             try
             {
                 string response = wc.UploadString(base_url + "?option=idioms_by_student", JsonFromPojo(new {dni=dni_usuario}));
-                return JsonConvert.DeserializeObject<List<IdiomStudent>>(response);
+                return JsonConvert.DeserializeObject<List<Idiom>>(response);
             }
             catch (Exception)
             {

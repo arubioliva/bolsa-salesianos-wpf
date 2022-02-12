@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BolsaSalesianos.pages.user.student"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="ShowStudiesPage">
 
     <Grid Background="{StaticResource MaterialDesignDarkBackground}">
@@ -25,6 +25,7 @@
         </materialDesign:ColorZone>
         <Grid Grid.Row="1" Margin="5 5">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="320"/>
             </Grid.ColumnDefinitions>
@@ -32,7 +33,21 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" Background="{StaticResource MaterialDesignBackground}">
+
+            <StackPanel x:Name="student_update" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="5" Background="{StaticResource MaterialDesignBackground}">
+                <TextBox Margin="6" x:Name="student_dni" IsEnabled="False" materialDesign:HintAssist.Hint="Dni" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                <TextBox Margin="6" x:Name="student_name" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                <TextBox Margin="6" x:Name="student_last_name" materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                <TextBox Margin="6" x:Name="student_phone" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                <TextBox Margin="6" x:Name="student_email" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_license" Content="Carnet de conducir"/>
+                <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_employed" Content="Trabajando actualmente"/>
+                <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_data_transf" Content="Cesion de datos"/>
+                <Button Margin="6" Content="ACTUALIZAR DATOS" Click="UpdateValues"></Button>
+                <materialDesign:Snackbar IsActive="False" x:Name="update_trigger" MessageQueue="{materialDesign:MessageQueue}"/>
+            </StackPanel>
+
+            <ScrollViewer  Grid.Row="0" Grid.Column="1" Margin="5" Background="{StaticResource MaterialDesignBackground}">
                 <ItemsControl
                       x:Name="studies_list"
                       Grid.IsSharedSizeScope="True">
@@ -51,7 +66,6 @@
                                     </Grid.ColumnDefinitions>
                                     <ToggleButton
                                         VerticalAlignment="Center"
-                                        IsChecked="{Binding IsSelected}"
                                         Style="{StaticResource MaterialDesignActionLightToggleButton}"
                                         Content="{Binding study[0]}" />
                                     <StackPanel
@@ -71,8 +85,8 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="0" Margin="5" Background="{StaticResource MaterialDesignBackground}">
+            </ScrollViewer>
+            <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="5" Background="{StaticResource MaterialDesignBackground}">
                 <ItemsControl
                       x:Name="idioms_list"
                       Grid.IsSharedSizeScope="True">
@@ -91,7 +105,6 @@
                                     </Grid.ColumnDefinitions>
                                     <ToggleButton
                                         VerticalAlignment="Center"
-                                        IsChecked="{Binding IsSelected}"
                                         Style="{StaticResource MaterialDesignActionLightToggleButton}"
                                         Content="{Binding level}" />
                                     <StackPanel
@@ -106,8 +119,8 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </StackPanel>
-            <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" Background="{StaticResource MaterialDesignBackground}">
+            </ScrollViewer>
+            <StackPanel Grid.Row="0" Grid.Column="2" Margin="5" Background="{StaticResource MaterialDesignBackground}">
                 <TextBlock  HorizontalAlignment="Center" Text="Estudios" Style="{DynamicResource MaterialDesignHeadline4TextBlock}"/>
                 <StackPanel Margin="10">
                     <ComboBox x:Name="all_studies" Style="{StaticResource MaterialDesignComboBox}"/>
@@ -116,28 +129,30 @@
                     <Border Height="15"/>
                     <ComboBox x:Name="year_end" Style="{StaticResource MaterialDesignComboBox}"/>
                     <Border Height="15"/>
-                    <Button Content="Guardar estudio"/>
+                    <Button Content="Guardar estudio" Click="AddStudy"/>
                 </StackPanel>
                 <StackPanel Margin="10">
                     <ComboBox x:Name="student_studies" Style="{StaticResource MaterialDesignComboBox}"/>
                     <Border Height="15"/>
-                    <Button Content="Eliminar estudio"/>
+                    <Button Content="Eliminar estudio" Click="RemoveStudy"/>
                 </StackPanel>
+                <materialDesign:Snackbar IsActive="False" x:Name="studies_trigger" MessageQueue="{materialDesign:MessageQueue}"/>
             </StackPanel>
-            <StackPanel Grid.Row="1" Grid.Column="1" Margin="5" Background="{StaticResource MaterialDesignBackground}">
+            <StackPanel Grid.Row="1" Grid.Column="2" Margin="5" Background="{StaticResource MaterialDesignBackground}">
                 <TextBlock  HorizontalAlignment="Center" Text="Idiomas" Style="{DynamicResource MaterialDesignHeadline4TextBlock}"/>
                 <StackPanel Margin="10">
                     <ComboBox x:Name="all_idioms" Style="{StaticResource MaterialDesignComboBox}"/>
                     <Border Height="15"/>
                     <ComboBox x:Name="all_levels" Style="{StaticResource MaterialDesignComboBox}"/>
                     <Border Height="15"/>
-                    <Button Content="Guardar idioma"/>
+                    <Button Content="Guardar idioma" Click="AddIdiom"/>
                 </StackPanel>
                 <StackPanel Margin="10" >
                     <ComboBox x:Name="student_idioms" Style="{StaticResource MaterialDesignComboBox}"/>
                     <Border Height="15"/>
-                    <Button Content="Eliminar idioma"/>
+                    <Button Content="Eliminar idioma" Click="RemoveIdiom"/>
                 </StackPanel>
+                <materialDesign:Snackbar IsActive="False" x:Name="idioms_trigger" MessageQueue="{materialDesign:MessageQueue}"/>
             </StackPanel>
         </Grid>
     </Grid>
