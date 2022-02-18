@@ -1,12 +1,14 @@
-﻿using System;
+﻿using BolsaSalesianos.database;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BolsaSalesianos.pojos
 {
-    internal class Enterprise
+    internal class Enterprise : IEditableObject
     {
         public string cif { get; set; }
         public string name { get; set; }
@@ -33,6 +35,19 @@ namespace BolsaSalesianos.pojos
             this.cif = cif;
         }
 
+        public void BeginEdit()
+        {
+        }
+
+        public void EndEdit()
+        {
+            EnterprisesService enterprisesService = new EnterprisesService();
+            enterprisesService.Update(this);
+        }
+
+        public void CancelEdit()
+        {
+        }
     }
 
     

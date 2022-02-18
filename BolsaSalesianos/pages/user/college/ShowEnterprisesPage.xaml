@@ -28,37 +28,43 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
-            <ScrollViewer 
-                Background="{StaticResource MaterialDesignLightBackground}"
-                HorizontalScrollBarVisibility="Auto"
-                Margin="10 10"
-                Grid.Column="0">
-                <ListView 
-                    x:Name="enterprises_list">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding cif}"
-                                Header="Cif" />
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding name}"
-                                Header="Nombre" />
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding contact_person}"
-                                Header="Persona de contacto" />
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding phone}"
-                                Header="Teléfono" />
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding email}"
-                                Header="Email" />
-                            <GridViewColumn
-                                DisplayMemberBinding="{Binding credential}"
-                                Header="Credencial" />
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
+            <DataGrid
+                      Grid.Column="0"
+                      x:Name="enterprises_list"
+                      Margin="5 10"
+                      CanUserResizeColumns="False"
+                      CanUserSortColumns="True"
+                      CanUserAddRows="True"
+                      AutoGenerateColumns="false"
+                      materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                      materialDesign:DataGridAssist.ColumnHeaderPadding="20 10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                                Binding="{Binding cif}"
+                                Header="Cif" 
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                    <materialDesign:DataGridTextColumn
+                                Binding="{Binding name}"
+                                Header="Nombre" 
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                    <materialDesign:DataGridTextColumn
+                                Binding="{Binding contact_person}"
+                                Header="Persona de contacto" 
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                    <materialDesign:DataGridTextColumn
+                                Binding="{Binding phone}"
+                                Header="Teléfono" 
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                    <materialDesign:DataGridTextColumn
+                                Binding="{Binding email}"
+                                Header="Email" 
+                                EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                    <materialDesign:DataGridTextColumn
+                            Binding="{Binding credential}"
+                            Header="Credencial"
+                            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <StackPanel Grid.Column="1" Margin="5 10"  Background="{StaticResource MaterialDesignLightBackground}">
                 <StackPanel Margin="5">
                     <Label Content="Empresas:" VerticalAlignment="Center" />

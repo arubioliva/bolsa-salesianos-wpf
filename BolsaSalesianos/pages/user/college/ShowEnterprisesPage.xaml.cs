@@ -28,7 +28,11 @@ namespace BolsaSalesianos.pages.user.college
             InitializeComponent();
             enterprisesServices = new EnterprisesService();
             enterprises_list.ItemsSource = enterprisesServices.FetchAll();
+            SaveRemoveCombo();
+        }
 
+        private void SaveRemoveCombo()
+        {
             List<string> enterprise_names = new List<string>();
             enterprise_names.AddRange(enterprisesServices.FetchAll().Select(o => o.cif).Distinct().ToList());
             enterprise_remove.ItemsSource = enterprise_names;
@@ -39,6 +43,7 @@ namespace BolsaSalesianos.pages.user.college
             Console.WriteLine(enterprise_remove.SelectedItem.ToString());
             enterprisesServices.Delete(new Enterprise { cif = enterprise_remove.SelectedItem.ToString() });
             enterprises_list.ItemsSource = enterprisesServices.FetchAll();
+            SaveRemoveCombo();
         }
     }
 }
