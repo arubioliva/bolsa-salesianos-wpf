@@ -11,17 +11,60 @@
         <materialDesign:DrawerHost>
             <materialDesign:DrawerHost.LeftDrawerContent>
                 <StackPanel Margin="40">
-                    <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
+                    <Button Margin="2" Style="{DynamicResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Estudios" Cursor="Hand" Click="Studies"/>
                     <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Vacantes" Cursor="Hand" Click="Vacants"/>
                     <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            Content="Perfil" Cursor="Hand" Click="Profile"/>
+                    <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>
                 </StackPanel>
+
             </materialDesign:DrawerHost.LeftDrawerContent>
             <Frame x:Name="content" NavigationUIVisibility="Hidden" Source="../DefaultPage.xaml"  Grid.Row="1"/>
         </materialDesign:DrawerHost>
+        <materialDesign:DialogHost x:Name="modal_user" Grid.RowSpan="2" CloseOnClickAway="True">
+            <materialDesign:DialogHost.DialogContent>
+                <Grid Margin="20" Width="300">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" x:Name="student_form">
+                        <TextBox Margin="6" x:Name="student_dni" materialDesign:HintAssist.Hint="Dni"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_name" materialDesign:HintAssist.Hint="Nombre"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_last_name" materialDesign:HintAssist.Hint="Apellidos"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_phone" materialDesign:HintAssist.Hint="Teléfono"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_email" materialDesign:HintAssist.Hint="Email"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_user" materialDesign:HintAssist.Hint="Usuario"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <TextBox Margin="6" x:Name="student_resume" materialDesign:HintAssist.Hint="Curriculum"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15" Cursor="IBeam"/>
+                        <PasswordBox Margin="6" x:Name="student_pass" materialDesign:HintAssist.Hint="Contraseña"
+                                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                        <PasswordBox Margin="6" x:Name="student_pass_2" materialDesign:HintAssist.Hint="Repita la contraseña"
+                                     Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15" Cursor="IBeam"/>
+                        <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_license"
+                                  Content="Carnet de conducir"/>
+                        <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_employed"
+                                  Content="Trabajando actualmente"/>
+                        <CheckBox Margin="6" Style="{StaticResource MaterialDesignCheckBox}" x:Name="student_data_transf"
+                                  Content="Cesion de datos"/>
+                    </StackPanel>
+                    <Button Content="Guardar cambios" Click="Updates" Grid.Row="1"/>
+                    <materialDesign:Snackbar x:Name="trigger"/>
+
+                </Grid>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Page>

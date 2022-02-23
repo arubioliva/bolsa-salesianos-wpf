@@ -52,8 +52,8 @@
                         DisplayMemberBinding="{Binding work_experience, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </GridView>
             </ListView.View>
-            <materialDesign:Snackbar x:Name="trigger"/>
         </ListView>
+        <materialDesign:Snackbar x:Name="trigger" Grid.Row="1"/>
         <materialDesign:DialogHost x:Name="modal" Grid.RowSpan="2" CloseOnClickAway="True" >
             <materialDesign:DialogHost.DialogContent>
                 <Grid Margin="20">

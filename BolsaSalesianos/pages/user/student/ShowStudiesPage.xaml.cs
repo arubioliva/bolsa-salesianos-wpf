@@ -94,7 +94,7 @@ namespace BolsaSalesianos.pages.user.student
                     student = student.dni
                 };
 
-                if (studiesStudentService.Fetch(study) != null)
+                if (studiesStudentService.Fetch(study) == null)
                 {
                     if (yearStart < yearEnd)
                     {
@@ -133,13 +133,6 @@ namespace BolsaSalesianos.pages.user.student
             }
         }
 
-        private void ShowError(Snackbar snackbar, string error)
-        {
-            snackbar.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(2000));
-            snackbar.MessageQueue.Enqueue(error);
-            snackbar.IsActive = true;
-        }
-
         private void RemoveIdiom(object sender, RoutedEventArgs e)
         {
             if (student_idioms.SelectedItem != null)
@@ -170,8 +163,15 @@ namespace BolsaSalesianos.pages.user.student
                 Idiom idiom = idiomsService.Fetch(newIdiom);
 
                 IdiomStudent idiomStudent = new IdiomStudent { idiom = idiom.id, student = student.dni };
-                idiomsStudentService.Insert(idiomStudent);
-                ActualizaElementos();
+                if (idiomsStudentService.Fetch(idiomStudent) == null)
+                {
+                    idiomsStudentService.Insert(idiomStudent);
+                    ActualizaElementos();
+                }
+                else
+                {
+                    ShowError(idioms_trigger, "Este idioma ya esta guardado");
+                }
             }
         }
 
@@ -195,5 +195,12 @@ namespace BolsaSalesianos.pages.user.student
                 GuardarEstudiante();
             }
         }
+        private void ShowError(Snackbar snackbar, string error)
+        {
+            snackbar.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(2000));
+            snackbar.MessageQueue.Enqueue(error);
+            snackbar.IsActive = true;
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using BolsaSalesianos.database.pojos;
 using BolsaSalesianos.database.services;
 using BolsaSalesianos.pojos;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,11 +63,10 @@ namespace BolsaSalesianos.pages.user.student
             }
             else
             {
-                
-
+                trigger.MessageQueue = new SnackbarMessageQueue(TimeSpan.FromMilliseconds(2000));
+                trigger.MessageQueue.Enqueue("Usted ya estaba inscrito en esta oferta.");
+                trigger.IsActive = true;
             }
-
-
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using MaterialDesignThemes.Wpf;
+using System.Windows;
 
 namespace BolsaSalesianos.database
 {
@@ -35,7 +36,7 @@ namespace BolsaSalesianos.database
                 case "pass": return ValidateWithError(value, @"^(?=.*([A-Z]|Ñ))(?=.*([a-z]|ñ))(?=.*[0-9])(?=.*[#?!@$ %^&*-]).{6,}$", "La contraseña es incorrecta");
                 case "email": return ValidateWithError(value, @"^\w+@\w+[.]\w{2,3}$", "El email es incorrecto");
                 case "phone": return ValidateWithError(value, @"^([+](\d{1,3}([-]\d{1,3})?) ?)?\d{9}$", "El telefono es incorrecto");
-                default: return false;
+                default: return true;
             }
         }
 
