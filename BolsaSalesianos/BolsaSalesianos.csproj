@@ -98,6 +98,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="database\pojos\Study.cs" />
+    <Compile Include="database\pojos\Vacant.cs" />
     <Compile Include="database\services\CredentialsService.cs" />
     <Compile Include="database\services\EnterprisesService.cs" />
     <Compile Include="database\services\IdiomsService.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="database\services\StudentsService.cs" />
     <Compile Include="database\services\StudiesService.cs" />
     <Compile Include="database\services\StudiesStudentService.cs" />
+    <Compile Include="database\services\VacantsService.cs" />
     <Compile Include="database\services\WebService.cs" />
     <Compile Include="database\datautils\Validator.cs" />
     <Compile Include="pages\user\college\CollegePage.xaml.cs">
@@ -139,6 +141,9 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\Switcher.cs" />
+    <Compile Include="pages\user\student\InscriptionsPage.xaml.cs">
+      <DependentUpon>InscriptionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
@@ -183,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\user\student\StudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\user\student\InscriptionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -118,10 +118,10 @@
                       ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
                       EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
                     <DataGridCheckBoxColumn
-                      Header="Cesion de datos"
-                      Binding="{Binding data_transf, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                      ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-                      EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
+                        Header="Cesion de datos"
+                        Binding="{Binding data_transf, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Grid.Column="1" Margin="5 10"  Background="{StaticResource MaterialDesignLightBackground}">

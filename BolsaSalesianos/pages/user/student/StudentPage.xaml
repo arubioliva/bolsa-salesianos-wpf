@@ -15,6 +15,9 @@
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Content="Estudios" Cursor="Hand" Click="Studies"/>
                     <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
+                            Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                            Content="Vacantes" Cursor="Hand" Click="Vacants"/>
+                    <Button Margin="2"  Style="{DynamicResource MaterialDesignFlatButton}"
                             Content="Salir" Cursor="Hand" Click="CloseSession"/>
                 </StackPanel>
             </materialDesign:DrawerHost.LeftDrawerContent>

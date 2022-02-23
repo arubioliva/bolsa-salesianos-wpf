@@ -33,6 +33,7 @@ namespace BolsaSalesianos
 
         private void TryLogin(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("hola?");
             Credential credential = credentialsService.Fetch(new Credential(user_field.Text, pass_field.Password));
             if (credential != null)
             {

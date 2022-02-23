@@ -23,7 +23,7 @@ namespace BolsaSalesianos.database
 
         public WebService(string name)
         {
-            base_url = "https://557ded9c.gclientes.com/api_rubio/" + name;
+            base_url = "https://c4ytrsshj.gclientes.com/api_rubio/" + name;
             wc = new WebClient();
         }
 

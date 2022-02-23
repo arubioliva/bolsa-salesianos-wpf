@@ -38,6 +38,10 @@ namespace BolsaSalesianos.pages.user
         {
             content.Content = new ShowStudiesPage(credential);
         }
+        private void Vacants(object sender, RoutedEventArgs e)
+        {
+            content.Content = new InscriptionsPage(credential);
+        }
     }
 
 }

@@ -45,7 +45,6 @@ namespace BolsaSalesianos.pojos
 
         public void BeginEdit()
         {
-
         }
 
         public void EndEdit()
