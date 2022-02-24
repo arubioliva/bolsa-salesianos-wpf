@@ -1,0 +1,17 @@
+REGISTRO:
+	usuario no registrado
+	que todos los campos son correctos
+	dni no registrado
+CAMBIO DE DATOS:
+	datos correctos
+	datos rellenos
+GUARDAR ESTUDIO/IDIOMA:
+	comprobacion de que el año es correcto
+	comprobacion de que el estudio no ha sido ya registrado
+	el idioma no ha sido insertado anteriormente
+OFERTAS:
+	no permite darse de alta varias veces en la misma oferta
+	la oferta se agrega al estudiante
+ESTUDIANTES:
+	se cambian los datos de los estudiantes correctamente
+	se eliminan los datos de los estudiantes correctamente
